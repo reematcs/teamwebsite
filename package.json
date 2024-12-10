@@ -1,15 +1,23 @@
 {
-    "name": "node-web-server",
+    "name": "web-server",
     "version": "1.0.0",
     "description": "A minimalist Web Server with Node.js",
     "main": "server.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "Reem",
     "license": "ISC",
     "dependencies": {
-      "express": "^4.16.3"
-    }
-  }
+        "express": "^4.16.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/reematcs/teamwebsite.git"
+    },
+    "bugs": {
+        "url": "https://github.com/reematcs/teamwebsite/issues"
+    },
+    "homepage": "https://github.com/reematcs/teamwebsite#readme"
+}

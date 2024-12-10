@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #000;
+      color: #00ff00;
+      font-family: monospace;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .codec-screen {
+      border: 2px solid #00ff00;
+      padding: 20px;
+      margin: 20px 0;
+      position: relative;
+      animation: scan 2s infinite linear;
+      background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.1) 50%);
+      background-size: 100% 4px;
+    }
+
+    @keyframes scan {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100%; }
+    }
+
+    .alert-box {
+      border: 2px solid #ff0000;
+      background-color: rgba(255, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px 0;
+      position: relative;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .snake {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ff00;
+      animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #00ff00; }
+    }
+
+    .radar {
+      width: 200px;
+      height: 200px;
+      border: 2px solid #00ff00;
+      border-radius: 50%;
+      margin: 20px auto;
+      position: relative;
+      animation: radar-spin 4s infinite linear;
+    }
+
+    .radar::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 2px;
+      background: #00ff00;
+      transform-origin: left;
+    }
+
+    @keyframes radar-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .freq {
+      font-size: 24px;
+      text-align: right;
+      animation: freq-change 5s infinite;
+    }
+
+    @keyframes freq-change {
+      0%, 100% { content: "140.85"; }
+      25% { content: "141.12"; }
+      50% { content: "140.96"; }
+      75% { content: "141.52"; }
+    }
+
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG8wbAAAACHRSTlMAAwQFBgcICSpgTKAAAABkSURBVDjL7cuxCQAgEAPA9wFsMJ1gGYLYiKWNE+TZ94Qo38R5rY2lnuC0iRjXfESrt/XoNttwxBFHHHHEEUccccQRRxxxxBFHHHHEEUccccQRRxxxxBFHHHHEEUccccQR5ycjD5FELaGQJHZAAAAAAElFTkSuQmCC');
+      animation: noise .2s infinite;
+    }
+
+    @keyframes noise {
+      0%, 100% { transform: translate(0, 0); }
+      10% { transform: translate(-5%, -5%); }
+      20% { transform: translate(10%, 5%); }
+      30% { transform: translate(-5%, 10%); }
+      40% { transform: translate(15%, -5%); }
+      50% { transform: translate(-15%, 15%); }
+      60% { transform: translate(5%, -10%); }
+      70% { transform: translate(-10%, 5%); }
+      80% { transform: translate(5%, 15%); }
+      90% { transform: translate(-5%, -15%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="container">
+    <div class="snake">
+      METAL GEAR SOLID
+    </div>
+    
+    <div class="freq">140.85</div>
+    
+    <div class="codec-screen">
+      <div class="typing">
+        Colonel, I've infiltrated the facility.
+      </div>
+      <p>Snake! The security level is unusually high. Be careful - enemy soldiers are everywhere.</p>
+    </div>
+    
+    <div class="radar"></div>
+    
+    <div class="alert-box">
+      ❗ ALERT STATUS: CAUTION
+      <p>Guard patrol patterns modified. Proceed with extreme caution.</p>
+    </div>
+    
+    <div class="codec-screen">
+      <p>Remember Snake, this is a sneaking mission. Weapons OSP (On-Site Procurement).</p>
+      <div class="typing">
+        Got it. I'm heading to the underground base.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
